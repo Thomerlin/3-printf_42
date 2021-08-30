@@ -7,6 +7,7 @@ OBJS= $(SRCS:.c=.o)
 
 SRCS= ft_printf.c \
 		ft_category.c \
+		ft_more_category.c \
 		ft_putcollection.c \
 		ft_putcollection2.c \
 

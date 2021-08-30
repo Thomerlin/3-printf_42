@@ -2,7 +2,7 @@
 
 void	category_is_char(t_print *box)
 {
-	box->sum = box->sum + ft_putchar((char)va_arg(box->list, int));
+	box->sum += ft_putchar((char)va_arg(box->list, int));
 }
 
 void	category_is_string(t_print *box)
