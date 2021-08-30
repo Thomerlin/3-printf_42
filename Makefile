@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tyago-ri@student.42sp.org.br <tyago-ri>    +#+  +:+       +#+         #
+#    By: thome <thome@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/30 09:28:15 by tyago-ri@st       #+#    #+#              #
-#    Updated: 2021/08/30 09:28:16 by tyago-ri@st      ###   ########.fr        #
+#    Updated: 2021/08/30 09:31:43 by thome            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ OBJS= $(SRCS:.c=.o)
 SRCS= ft_printf.c \
 		ft_category.c \
 		ft_more_category.c \
-		ft_putcollection.c \
-		ft_putcollection2.c \
+		ft_utils.c \
+		ft_more_utils.c \
 
 all: $(NAME)
 		@echo "\033[1;32mmake done!"
