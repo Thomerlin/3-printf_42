@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tyago-ri@student.42sp.org.br <tyago-ri>    +#+  +:+       +#+        */
+/*   By: thome <thome@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 09:27:24 by tyago-ri@st       #+#    #+#             */
-/*   Updated: 2021/08/30 09:27:25 by tyago-ri@st      ###   ########.fr       */
+/*   Updated: 2021/08/31 06:00:40 by thome            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ typedef struct s_print
 	int			size;
 	int			pos;
 	int			sum;
-}	t_print;
+}	T_PRINT;
 
 int		ft_printf(const char *str, ...);
-void	parse_formatting(t_print *box);
-void	category_scanner(t_print *box);
-void	category_is_char(t_print *box);
-void	category_is_string(t_print *box);
-void	category_is_deci(t_print *box);
-void	category_is_modulo(t_print *box);
-void	category_is_unsign(t_print *box);
-void	category_is_hexa(t_print *box);
-void	category_is_hexa_up(t_print *box);
-void	category_is_hexa_ptr(t_print *box);
+void	parse_formatting(T_PRINT *box);
+void	category_scanner(T_PRINT *box);
+void	category_is_char(T_PRINT *box);
+void	category_is_string(T_PRINT *box);
+void	category_is_deci(T_PRINT *box);
+void	category_is_modulo(T_PRINT *box);
+void	category_is_unsign(T_PRINT *box);
+void	category_is_hexa(T_PRINT *box);
+void	category_is_hexa_up(T_PRINT *box);
+void	category_is_hexa_ptr(T_PRINT *box);
 int		ft_strlen(char *str);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
@@ -43,4 +43,5 @@ int		ft_putnbr(int n);
 int		ft_putnbr_unsign(unsigned int n);
 int		ft_hexa(unsigned long long int nb);
 int		ft_hexa_up(unsigned long long int nb);
+
 #endif

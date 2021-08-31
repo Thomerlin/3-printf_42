@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tyago-ri@student.42sp.org.br <tyago-ri>    +#+  +:+       +#+        */
+/*   By: thome <thome@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 09:27:16 by tyago-ri@st       #+#    #+#             */
-/*   Updated: 2021/08/30 09:27:20 by tyago-ri@st      ###   ########.fr       */
+/*   Updated: 2021/08/30 09:58:49 by thome            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	category_scanner(t_print *box)
+void	category_scanner(T_PRINT *box)
 {
 	box->scan_type = "cspdiuxX%";
 	while (box->scan_type[box->size] != box->str[box->pos])
@@ -21,9 +21,9 @@ void	category_scanner(t_print *box)
 		box->sum += (write (1, "0x", 2));
 }
 
-void	parse_formatting(t_print *box)
+void	parse_formatting(T_PRINT *box)
 {
-	void	(*category_is[9])(t_print *);
+	void	(*category_is[9])(T_PRINT *);
 
 	category_is[0] = &category_is_char;
 	category_is[1] = &category_is_string;
@@ -52,7 +52,7 @@ void	parse_formatting(t_print *box)
 
 int	ft_printf(const char *str, ...)
 {
-	t_print	box;
+	T_PRINT	box;
 
 	va_start(box.list, str);
 	box.str = str;
