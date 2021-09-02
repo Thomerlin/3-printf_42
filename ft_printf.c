@@ -1,64 +1,52 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: thome <thome@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/30 09:27:16 by tyago-ri@st       #+#    #+#             */
-/*   Updated: 2021/08/30 09:58:49 by thome            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
-void	category_scanner(T_PRINT *box)
+void	format_scanner(t_print *box)
 {
 	box->scan_type = "cspdiuxX%";
 	while (box->scan_type[box->size] != box->str[box->pos])
 		box->size++;
 	if (box->scan_type[box->size] == 'p')
-		box->sum += (write (1, "0x", 2));
+		box->len += (write (1, "0x", 2));
 }
 
-void	parse_formatting(T_PRINT *box)
+void	verify_formatting(t_print *box)
 {
-	void	(*category_is[9])(T_PRINT *);
+	void	(*format_is[9])(t_print *);
 
-	category_is[0] = &category_is_char;
-	category_is[1] = &category_is_string;
-	category_is[2] = &category_is_hexa_ptr;
-	category_is[3] = &category_is_deci;
-	category_is[4] = &category_is_deci;
-	category_is[5] = &category_is_unsign;
-	category_is[6] = &category_is_hexa;
-	category_is[7] = &category_is_hexa_up;
-	category_is[8] = &category_is_modulo;
+	format_is[0] = &ft_print_char;
+	format_is[1] = &ft_print_string;
+	format_is[2] = &ft_print_hexa_ptr;
+	format_is[3] = &ft_print_deci;
+	format_is[4] = &ft_print_deci;
+	format_is[5] = &ft_print_unsign;
+	format_is[6] = &ft_print_hexa;
+	format_is[7] = &ft_print_hexa_up;
+	format_is[8] = &ft_print_modulo;
 	box->size = 0;
 	while (box->str[box->pos])
 	{
 		if (box->str[box->pos] == '%')
 		{
 			box->pos++;
-			category_scanner(box);
-			category_is[box->size](box);
+			format_scanner(box);
+			format_is[box->size](box);
 			box->size = 0;
 		}
 		else
-			box->sum += ft_putchar(box->str[box->pos]);
+			box->len += ft_putchar(box->str[box->pos]);
 		box->pos++;
 	}
 }
 
 int	ft_printf(const char *str, ...)
 {
-	T_PRINT	box;
+	t_print	box;
 
 	va_start(box.list, str);
 	box.str = str;
 	box.pos = 0;
-	box.sum = 0;
-	parse_formatting(&box);
+	box.len = 0;
+	verify_formatting(&box);
 	va_end(box.list);
-	return (box.sum);
+	return (box.len);
 }

@@ -6,7 +6,7 @@
 #    By: thome <thome@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/30 09:28:15 by tyago-ri@st       #+#    #+#              #
-#    Updated: 2021/08/30 09:33:23 by thome            ###   ########.fr        #
+#    Updated: 2021/08/31 14:10:42 by thome            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ CFLAGS= -Wall -Werror -Wextra -c
 OBJS= $(SRCS:.c=.o)
 
 SRCS= ft_printf.c \
-		ft_category.c \
-		ft_more_category.c \
+		ft_format.c \
+		ft_more_format.c \
 		ft_utils.c \
 		ft_more_utils.c \
 
