@@ -6,7 +6,7 @@
 #    By: thome <thome@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/30 09:28:15 by tyago-ri@st       #+#    #+#              #
-#    Updated: 2021/08/31 14:10:42 by thome            ###   ########.fr        #
+#    Updated: 2021/09/06 12:33:00 by thome            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME= libftprintf.a
 
 AR= ar rc
 CC= gcc
-CFLAGS= -Wall -Werror -Wextra -c
+CFLAGS= -Wall -Werror -Wextra -c -g
 OBJS= $(SRCS:.c=.o)
 
 SRCS= ft_printf.c \
@@ -24,7 +24,6 @@ SRCS= ft_printf.c \
 		ft_more_utils.c \
 
 all: $(NAME)
-		@echo "\033[1;32mmake done!"
 
 $(NAME): $(OBJS)
 		$(AR) $(NAME) $(OBJS)
@@ -37,9 +36,7 @@ clean:
 
 fclean: clean
 				$(RM) $(NAME)
-				clear
-				@echo "\033[1;34mmake fclean done!"
-	
+
 re: fclean all
 
 .PHONY: all clean fclean re

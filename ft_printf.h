@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tyago-ri < tyago-ri@student.42sp.org.br    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/06 13:01:08 by tyago-ri          #+#    #+#             */
+/*   Updated: 2021/09/06 13:01:08 by tyago-ri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
@@ -8,9 +20,9 @@ typedef struct s_print
 	va_list		list;
 	const char	*str;
 	char		*scan_type;
-	int			size;
+	int			index;
 	int			pos;
-	int			len;
+	int			prt;
 }	t_print;
 
 int		ft_printf(const char *str, ...);
